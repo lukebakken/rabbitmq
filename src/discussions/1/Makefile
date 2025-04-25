@@ -15,7 +15,7 @@ $(CURDIR)/rabbitmq_server-$(RABBITMQ_VERSION)/sbin/rabbitmq-server:
 rabbitmq-server-4: $(CURDIR)/rabbitmq_server-$(RABBITMQ_VERSION)/sbin/rabbitmq-server
 start-release: rabbitmq-server-4
 	cd $(CURDIR)/rabbitmq_server-$(RABBITMQ_VERSION) && \
-	RABBITMQ_CONFIG_FILES="$(CURDIR)/conf.d" ./sbin/rabbitmq-server
+	LOG=debug RABBITMQ_CONFIG_FILES="$(CURDIR)/conf.d" ./sbin/rabbitmq-server
 
 remove-release:
 	rm -rf $(RABBITMQ_ARCHIVE) rabbitmq_server-$(RABBITMQ_VERSION)
